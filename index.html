@@ -133,17 +133,16 @@
             pointer-events: none;
         }
 
-        .floating-icons i {
+        .floating-icons span {
             position: absolute;
-            color: rgba(255,255,255,0.07);
-            animation: floatUp linear infinite;
+            pointer-events: none;
         }
 
         @keyframes floatUp {
-            0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
-            10%  { opacity: 1; }
-            90%  { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+            0%   { transform: translateY(0) rotate(0deg);      opacity: 0; }
+            8%   { opacity: 0.18; }
+            90%  { opacity: 0.12; }
+            100% { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
         }
 
         .hero-content {
@@ -764,34 +763,40 @@
         });
     });
 
-    // Iconos flotantes en el hero
-    const icons = ['fa-bolt', 'fa-wrench', 'fa-hammer', 'fa-tools', 'fa-key', 'fa-hard-hat', 'fa-screwdriver', 'fa-cog'];
+    // Iconos flotantes usando emojis/símbolos — no dependen de Font Awesome
+    const symbols = ['⚡', '🔧', '🔨', '🔑', '⚙️', '🪛', '🔩', '🪚', '🛠️'];
     const container = document.getElementById('floatingIcons');
 
     function createIcon() {
-        const el = document.createElement('i');
-        el.className = `fas ${icons[Math.floor(Math.random() * icons.length)]}`;
-        const size = Math.random() * 28 + 14;
-        const left = Math.random() * 100;
-        const duration = Math.random() * 18 + 12;
-        const delay = Math.random() * 8;
+        const el = document.createElement('span');
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        const size = Math.random() * 30 + 25;
+        const left = Math.random() * 95;
+        const duration = Math.random() * 10 + 7;
+        const delay = Math.random() * 5;
         el.style.cssText = `
+            position: absolute;
             font-size: ${size}px;
             left: ${left}%;
             bottom: -60px;
-            animation-duration: ${duration}s;
-            animation-delay: ${delay}s;
+            opacity: 0;
+            filter: grayscale(1) brightness(0.6) sepia(1) hue-rotate(190deg);
+            animation: floatUp ${duration}s ${delay}s linear forwards;
+            pointer-events: none;
+            user-select: none;
         `;
         container.appendChild(el);
         setTimeout(() => el.remove(), (duration + delay) * 1000);
     }
 
-    // Crear iconos iniciales escalonados
-    for (let i = 0; i < 18; i++) {
-        setTimeout(createIcon, i * 600);
+    // Ráfaga inicial: 25 iconos en los primeros 2 segundos
+    for (let i = 0; i < 25; i++) {
+        setTimeout(createIcon, i * 80);
     }
-    // Seguir generando
-    setInterval(createIcon, 1200);
+    // Después ritmo lento y constante
+    setTimeout(() => {
+        setInterval(createIcon, 2200);
+    }, 2500);
 </script>
 </body>
 </html>
