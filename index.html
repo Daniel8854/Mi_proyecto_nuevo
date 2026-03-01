@@ -10,12 +10,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --verde: #00a86b;
-            --verde-oscuro: #007a4d;
-            --negro: #111;
-            --gris-oscuro: #1e1e1e;
-            --gris-claro: #f4f4f4;
-            --blanco: #fff;
+            --azul:        #1a3a6b;
+            --azul-oscuro: #0a1f44;
+            --azul-medio:  #2d5fa8;
+            --azul-claro:  #e8eef7;
+            --blanco:      #ffffff;
+            --gris-claro:  #f5f7fb;
+            --gris-texto:  #555e70;
+            --negro:       #0d1b2e;
         }
 
         html { scroll-behavior: smooth; }
@@ -29,7 +31,7 @@
 
         /* ── NAVBAR ── */
         .navbar {
-            background: var(--gris-oscuro);
+            background: var(--azul-oscuro);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -51,19 +53,14 @@
             font-weight: 900;
             font-size: 1.5rem;
             color: var(--blanco);
-            letter-spacing: -0.5px;
         }
 
-        .logo span { color: var(--verde); }
+        .logo span { color: #7aaee8; }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-        }
+        .nav-menu { display: flex; list-style: none; gap: 35px; }
 
         .nav-menu a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
@@ -80,14 +77,13 @@
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 2px;
-            background: var(--verde);
+            background: #7aaee8;
             transition: width 0.3s;
         }
 
         .nav-menu a:hover { color: var(--blanco); }
         .nav-menu a:hover::after { width: 100%; }
 
-        /* Hamburguesa */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -100,8 +96,7 @@
 
         .hamburger span {
             display: block;
-            width: 25px;
-            height: 3px;
+            width: 25px; height: 3px;
             background: var(--blanco);
             border-radius: 3px;
             transition: all 0.3s;
@@ -114,7 +109,7 @@
         /* ── HERO ── */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #007a4d 0%, #00a86b 50%, #00c97e 100%);
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul) 60%, var(--azul-medio) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -127,7 +122,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .hero-content {
@@ -139,8 +134,8 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.3);
             color: white;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
@@ -159,45 +154,37 @@
             color: white;
             line-height: 1.1;
             margin-bottom: 20px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .hero-content p {
             font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: rgba(255,255,255,0.92);
+            color: rgba(255,255,255,0.85);
             margin-bottom: 40px;
             max-width: 550px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             padding: 16px 36px;
-            background: white;
-            color: var(--verde-oscuro);
+            background: var(--blanco);
+            color: var(--azul-oscuro);
             text-decoration: none;
             border-radius: 50px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 0.95rem;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.25);
             transition: all 0.3s;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
 
         .btn-secondary {
             display: inline-flex;
@@ -208,23 +195,17 @@
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            border: 2px solid rgba(255,255,255,0.7);
+            border: 2px solid rgba(255,255,255,0.6);
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 0.95rem;
             transition: all 0.3s;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: white;
-        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.12); border-color: white; }
 
-        /* Stats bar */
-        .stats-bar {
-            background: var(--negro);
-            padding: 30px;
-        }
+        /* ── STATS ── */
+        .stats-bar { background: var(--negro); padding: 30px; }
 
         .stats-inner {
             max-width: 1000px;
@@ -235,43 +216,32 @@
             gap: 20px;
         }
 
-        .stat {
-            text-align: center;
-        }
+        .stat { text-align: center; }
 
         .stat-num {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.2rem;
             font-weight: 900;
-            color: var(--verde);
+            color: #7aaee8;
         }
 
         .stat-label {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.55);
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         /* ── ABOUT ── */
-        .about {
-            padding: 100px 30px;
-            background: var(--gris-claro);
-        }
+        .about { padding: 100px 30px; background: var(--gris-claro); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1200px; margin: 0 auto; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+        .section-header { text-align: center; margin-bottom: 60px; }
 
         .section-tag {
             display: inline-block;
-            background: var(--verde);
+            background: var(--azul-medio);
             color: white;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
@@ -288,7 +258,6 @@
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 900;
             color: var(--negro);
-            line-height: 1.2;
         }
 
         .about-grid {
@@ -300,16 +269,12 @@
 
         .about-text p {
             font-size: 1.1rem;
-            color: #555;
+            color: var(--gris-texto);
             margin-bottom: 20px;
             line-height: 1.85;
         }
 
-        .about-features {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .about-features { display: flex; flex-direction: column; gap: 15px; }
 
         .feature-item {
             display: flex;
@@ -319,88 +284,125 @@
             color: var(--negro);
         }
 
-        .feature-item i {
-            color: var(--verde);
-            font-size: 1.1rem;
-            width: 20px;
-        }
+        .feature-item i { color: var(--azul-medio); font-size: 1.1rem; width: 20px; }
 
         /* ── SERVICES ── */
-        .services {
-            padding: 100px 30px;
-            background: white;
-        }
+        .services { padding: 100px 30px; background: var(--blanco); }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
-            background: white;
+            background: var(--blanco);
             border-radius: 16px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-            border: 1px solid #eee;
-            border-top: 4px solid var(--verde);
-            transition: all 0.3s ease;
-            position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(10,31,68,0.08);
+            border: 1px solid #dde5f0;
+            border-top: 4px solid var(--azul-medio);
+            transition: all 0.3s ease;
         }
 
-        .service-card::after {
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(10,31,68,0.15);
+        }
+
+        .service-img-wrap { overflow: hidden; position: relative; }
+
+        .service-img-wrap::after {
             content: '';
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 0;
-            background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
-            transition: height 0.4s ease;
-            z-index: 0;
+            height: 60px;
+            background: linear-gradient(to top, white, transparent);
         }
 
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,168,107,0.15); }
-        .service-card:hover::after { height: 4px; }
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
 
-        .service-card > * { position: relative; z-index: 1; }
+        .service-card:hover .service-img { transform: scale(1.05); }
 
-        .service-icon {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, rgba(0,168,107,0.12), rgba(0,168,107,0.05));
-            border-radius: 16px;
-            display: flex;
+        .service-body { padding: 25px 28px 30px; }
+
+        .service-icon-small {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            color: var(--verde);
-            margin-bottom: 20px;
+            width: 44px; height: 44px;
+            background: var(--azul-claro);
+            border-radius: 10px;
+            color: var(--azul-medio);
+            font-size: 1.2rem;
+            margin-bottom: 14px;
             transition: all 0.3s;
         }
 
-        .service-card:hover .service-icon {
-            background: var(--verde);
-            color: white;
-            transform: scale(1.05);
-        }
+        .service-card:hover .service-icon-small { background: var(--azul-medio); color: white; }
 
-        .service-card h3 {
+        .service-body h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--negro);
         }
 
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.7;
+        .service-body p { color: var(--gris-texto); font-size: 0.92rem; line-height: 1.7; }
+
+        /* ── GALERÍA ── */
+        .showcase { padding: 100px 30px; background: var(--gris-claro); }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 220px 220px;
+            gap: 15px;
+            border-radius: 16px;
+            overflow: hidden;
         }
 
-        /* ── CTA BAND ── */
+        .showcase-item { position: relative; overflow: hidden; }
+        .showcase-item:first-child { grid-row: 1 / 3; }
+
+        .showcase-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .showcase-item:hover img { transform: scale(1.07); }
+
+        .showcase-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,31,68,0.65), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .showcase-item:hover .overlay { opacity: 1; }
+
+        .overlay span {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* ── CTA ── */
         .cta-band {
-            background: linear-gradient(135deg, var(--negro) 0%, var(--gris-oscuro) 100%);
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul) 100%);
             padding: 80px 30px;
             text-align: center;
         }
@@ -413,11 +415,7 @@
             margin-bottom: 15px;
         }
 
-        .cta-band p {
-            color: rgba(255,255,255,0.65);
-            margin-bottom: 35px;
-            font-size: 1.05rem;
-        }
+        .cta-band p { color: rgba(255,255,255,0.65); margin-bottom: 35px; font-size: 1.05rem; }
 
         .btn-whatsapp {
             display: inline-flex;
@@ -431,22 +429,14 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1rem;
-            box-shadow: 0 6px 30px rgba(37,211,102,0.4);
+            box-shadow: 0 6px 30px rgba(37,211,102,0.35);
             transition: all 0.3s;
         }
 
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(37,211,102,0.6);
-            background: #20ba5a;
-        }
+        .btn-whatsapp:hover { transform: translateY(-3px); background: #20ba5a; }
 
         /* ── FOOTER ── */
-        footer {
-            background: var(--negro);
-            color: rgba(255,255,255,0.5);
-            padding: 40px 30px;
-        }
+        footer { background: var(--azul-oscuro); color: rgba(255,255,255,0.5); padding: 40px 30px; }
 
         .footer-inner {
             max-width: 1200px;
@@ -458,20 +448,10 @@
             gap: 20px;
         }
 
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.2rem;
-            color: white;
-        }
+        .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; color: white; }
+        .footer-logo span { color: #7aaee8; }
 
-        .footer-logo span { color: var(--verde); }
-
-        .footer-contact {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+        .footer-contact { display: flex; gap: 25px; flex-wrap: wrap; }
 
         .footer-contact a {
             color: rgba(255,255,255,0.6);
@@ -483,8 +463,8 @@
             transition: color 0.3s;
         }
 
-        .footer-contact a:hover { color: var(--verde); }
-        .footer-contact a i { color: var(--verde); }
+        .footer-contact a:hover { color: #7aaee8; }
+        .footer-contact a i { color: #7aaee8; }
 
         .footer-copy {
             font-size: 0.8rem;
@@ -498,10 +478,8 @@
         /* ── WhatsApp flotante ── */
         .whatsapp-button {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
+            bottom: 30px; right: 30px;
+            width: 60px; height: 60px;
             background: #25d366;
             border-radius: 50%;
             display: flex;
@@ -516,11 +494,7 @@
             animation: pulse 2.5s infinite;
         }
 
-        .whatsapp-button:hover {
-            transform: scale(1.12);
-            box-shadow: 0 8px 30px rgba(37,211,102,0.7);
-            animation: none;
-        }
+        .whatsapp-button:hover { transform: scale(1.12); animation: none; }
 
         @keyframes pulse {
             0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
@@ -533,6 +507,11 @@
         }
 
         /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .showcase-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 180px); }
+            .showcase-item:first-child { grid-row: auto; }
+        }
+
         @media (max-width: 768px) {
             .hamburger { display: flex; }
 
@@ -541,20 +520,19 @@
                 flex-direction: column;
                 position: absolute;
                 top: 70px; left: 0; right: 0;
-                background: var(--gris-oscuro);
+                background: var(--azul-oscuro);
                 padding: 20px 30px 30px;
                 gap: 20px;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             }
 
             .nav-menu.open { display: flex; }
-
             .about-grid { grid-template-columns: 1fr; gap: 30px; }
-
             .footer-inner { flex-direction: column; text-align: center; }
             .footer-contact { justify-content: center; }
-
             .hero-buttons { flex-direction: column; align-items: center; }
+            .services-grid { grid-template-columns: 1fr; }
+            .showcase-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 200px); }
         }
     </style>
 </head>
@@ -581,7 +559,7 @@
     <div class="hero-content">
         <div class="hero-badge">⚡ Servicio Profesional Garantizado</div>
         <h1>Tu hogar en<br>las mejores manos</h1>
-        <p>Electricidad, fontanería, reformas y más. Soluciones integrales con calidad y rapidez.</p>
+        <p>Electricidad, fontanería, reformas y más. Soluciones integrales con calidad y rapidez en España.</p>
         <div class="hero-buttons">
             <a href="#services" class="btn-primary"><i class="fas fa-tools"></i> Ver Servicios</a>
             <a href="https://wa.me/34637222119" class="btn-secondary" target="_blank"><i class="fab fa-whatsapp"></i> Pedir Presupuesto</a>
@@ -592,22 +570,10 @@
 <!-- STATS -->
 <div class="stats-bar">
     <div class="stats-inner">
-        <div class="stat">
-            <div class="stat-num">+500</div>
-            <div class="stat-label">Clientes Satisfechos</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">6</div>
-            <div class="stat-label">Especialidades</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">24h</div>
-            <div class="stat-label">Respuesta Rápida</div>
-        </div>
-        <div class="stat">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Garantía en Trabajos</div>
-        </div>
+        <div class="stat"><div class="stat-num">+500</div><div class="stat-label">Clientes Satisfechos</div></div>
+        <div class="stat"><div class="stat-num">6</div><div class="stat-label">Especialidades</div></div>
+        <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Respuesta Rápida</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Garantía en Trabajos</div></div>
     </div>
 </div>
 
@@ -618,7 +584,7 @@
             <div class="about-text">
                 <div class="section-tag">Sobre Nosotros</div>
                 <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:20px;">Profesionales con experiencia real</h2>
-                <p>Somos una empresa de servicios integrales dedicada a brindar soluciones de calidad en reparación, mantenimiento y reforma.</p>
+                <p>Somos una empresa de servicios integrales dedicada a brindar soluciones de calidad en reparación, mantenimiento y reforma por toda España.</p>
                 <p>Nos comprometemos a ejecutar cada proyecto con profesionalismo, puntualidad y dedicación — dejando tu hogar o negocio en perfectas condiciones.</p>
             </div>
             <div class="about-features">
@@ -642,43 +608,105 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-bolt"></i></div>
-                <h3>Electricidad</h3>
-                <p>Instalación, reparación y mantenimiento de sistemas eléctricos seguros y confiables.</p>
+                <div class="service-img-wrap">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80" alt="Electricidad" loading="lazy">
+                </div>
+                <div class="service-body">
+                    <div class="service-icon-small"><i class="fas fa-bolt"></i></div>
+                    <h3>Electricidad</h3>
+                    <p>Instalación, reparación y mantenimiento de sistemas eléctricos seguros y confiables.</p>
+                </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-wrench"></i></div>
-                <h3>Fontanería</h3>
-                <p>Servicios de agua, drenaje y sistemas hidráulicos de calidad garantizada.</p>
+                <div class="service-img-wrap">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80" alt="Fontanería" loading="lazy">
+                </div>
+                <div class="service-body">
+                    <div class="service-icon-small"><i class="fas fa-wrench"></i></div>
+                    <h3>Fontanería</h3>
+                    <p>Servicios de agua, drenaje y sistemas hidráulicos de calidad garantizada.</p>
+                </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-shower"></i></div>
-                <h3>Plomería</h3>
-                <p>Reparación e instalación de sistemas de plomería con profesionales expertos.</p>
+                <div class="service-img-wrap">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Plomería" loading="lazy">
+                </div>
+                <div class="service-body">
+                    <div class="service-icon-small"><i class="fas fa-shower"></i></div>
+                    <h3>Plomería</h3>
+                    <p>Reparación e instalación de sistemas de plomería con profesionales expertos.</p>
+                </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-hammer"></i></div>
-                <h3>Reformas Generales</h3>
-                <p>Renovación integral de espacios, desde diseño hasta ejecución final.</p>
+                <div class="service-img-wrap">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80" alt="Reformas Generales" loading="lazy">
+                </div>
+                <div class="service-body">
+                    <div class="service-icon-small"><i class="fas fa-hammer"></i></div>
+                    <h3>Reformas Generales</h3>
+                    <p>Renovación integral de espacios, desde diseño hasta ejecución final.</p>
+                </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-tools"></i></div>
-                <h3>Reformas Eléctricas y Albañilería</h3>
-                <p>Especialistas en modificaciones eléctricas y trabajos de construcción.</p>
+                <div class="service-img-wrap">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Albañilería" loading="lazy">
+                </div>
+                <div class="service-body">
+                    <div class="service-icon-small"><i class="fas fa-tools"></i></div>
+                    <h3>Reformas Eléctricas y Albañilería</h3>
+                    <p>Especialistas en modificaciones eléctricas y trabajos de construcción.</p>
+                </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-key"></i></div>
-                <h3>Cerrajería</h3>
-                <p>Servicios de cerrajería profesional, instalación y reparación de cerraduras.</p>
+                <div class="service-img-wrap">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Cerrajería" loading="lazy">
+                </div>
+                <div class="service-body">
+                    <div class="service-icon-small"><i class="fas fa-key"></i></div>
+                    <h3>Cerrajería</h3>
+                    <p>Servicios de cerrajería profesional, instalación y reparación de cerraduras.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA BAND -->
+<!-- GALERÍA -->
+<section class="showcase">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Nuestro Trabajo</div>
+            <h2>Así dejamos cada proyecto</h2>
+        </div>
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Reformas integrales" loading="lazy">
+                <div class="overlay"><span>Reformas integrales</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&q=80" alt="Cocinas y baños" loading="lazy">
+                <div class="overlay"><span>Cocinas y baños</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Instalaciones" loading="lazy">
+                <div class="overlay"><span>Instalaciones eléctricas</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1560185009-5bf9f4849bd0?w=400&q=80" alt="Fontanería" loading="lazy">
+                <div class="overlay"><span>Fontanería profesional</span></div>
+            </div>
+            <div class="showcase-item">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&q=80" alt="Construcción" loading="lazy">
+                <div class="overlay"><span>Albañilería y obra</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
 <div class="cta-band" id="contacto">
     <h2>¿Necesitas un presupuesto?</h2>
-    <p>Escríbenos por WhatsApp y te respondemos en minutos.</p>
+    <p>Escríbenos por WhatsApp y te respondemos en minutos. Sin compromiso.</p>
     <a href="https://wa.me/34637222119" class="btn-whatsapp" target="_blank">
         <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
     </a>
@@ -696,7 +724,6 @@
     </div>
 </footer>
 
-<!-- WhatsApp flotante -->
 <a href="https://wa.me/34637222119" class="whatsapp-button" target="_blank" title="Escríbenos por WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
@@ -704,13 +731,10 @@
 <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
-
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('open');
     });
-
-    // Cerrar menú al hacer clic en un enlace
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
